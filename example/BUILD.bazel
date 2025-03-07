@@ -1,0 +1,19 @@
+load("@rules_java//java:defs.bzl", "java_binary")
+load("example_rule.bzl", "example_rule")
+
+java_library(
+    name = "example_java_library",
+    srcs = ["Example.java"],
+    tags = [
+        "no-sandbox",
+    ],
+)
+
+example_rule(
+    name = "example",
+    dep = ":example_java_library",
+    # Remove the no-sandbox tag to make the bug go away
+    tags = [
+        "no-sandbox",
+    ],
+)

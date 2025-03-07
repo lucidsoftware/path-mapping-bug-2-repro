@@ -1,0 +1,5 @@
+module(name = "path-mapping-bug-2-repro")
+
+bazel_dep(name = "rules_java", version = "8.10.0")
+
+register_toolchains("//:repository_default_toolchain_21_definition")
